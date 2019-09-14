@@ -13,6 +13,8 @@
 		EF2D1372232C74B1001C50EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2D1370232C74B1001C50EC /* Main.storyboard */; };
 		EF2D1374232C74B2001C50EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF2D1373232C74B2001C50EC /* Assets.xcassets */; };
 		EF2D1377232C74B2001C50EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2D1375232C74B2001C50EC /* LaunchScreen.storyboard */; };
+		EF2D1385232C8050001C50EC /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D1384232C8050001C50EC /* Calories.swift */; };
+		EF2D1387232C811E001C50EC /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2D1386232C811E001C50EC /* CaloriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		EF2D1373232C74B2001C50EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF2D1376232C74B2001C50EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2D1378232C74B2001C50EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF2D1384232C8050001C50EC /* Calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
+		EF2D1386232C811E001C50EC /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 		F06B38EBEBD9CDF40C83EE0F /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,7 @@
 		EF2D1380232C74E5001C50EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF2D1384232C8050001C50EC /* Calories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 		EF2D1382232C7505001C50EC /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF2D1386232C811E001C50EC /* CaloriesController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -252,6 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2D136F232C74B1001C50EC /* CalorieTrackerVC.swift in Sources */,
+				EF2D1387232C811E001C50EC /* CaloriesController.swift in Sources */,
+				EF2D1385232C8050001C50EC /* Calories.swift in Sources */,
 				EF2D136D232C74B1001C50EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

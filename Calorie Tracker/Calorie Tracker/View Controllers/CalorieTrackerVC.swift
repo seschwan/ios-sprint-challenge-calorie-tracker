@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTrackerVC: UIViewController {
+    
+    // MARK: - Variables
+    let caloriesController = CaloriesController()
+    let dateFormatter = DateFormatter()
     
     // MARK: - Outlets:
     @IBOutlet weak var addBtn: UIBarButtonItem!
@@ -19,38 +24,58 @@ class CalorieTrackerVC: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
+        //caloriesController.loadChart()
+        let chart = Chart()
+        chart.backgroundColor = .red
+       
     }
+    
+    // MARK: - Methods:
+   
 
     
     // MARK: - Actions:
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
+        //var calories: Double
+        var calorieEntry: UITextField!
+        
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calorie Amount.."
+            calorieEntry = textField
+        }
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             // Dismisses the alert controller. 
         }))
+        
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (_) in
             //TODO add to the table view when the button is pressed.
+            guard let calorieEntry = Double(calorieEntry.text!) else { return }
+            self.caloriesController.addCalories(calorieCount: calorieEntry)
+            self.tableView.reloadData()
+            print(self.caloriesController.caloriesArray)
         }))
-        alert.addTextField { (textField) in
-            textField.placeholder = "Calorie Amount.."
-            // TODO Get the text and do something with it.
-        }
+       
         present(alert, animated: true, completion: nil)
     }
-    
 
 }
 // MARK: - Extensions For UITableViewDataSource
 extension CalorieTrackerVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        return caloriesController.caloriesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        
+        let calorie = caloriesController.caloriesArray[indexPath.row]
+        cell.textLabel?.text = ("Calories: \(calorie.calorieCount)")
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        cell.detailTextLabel?.text = dateFormatter.string(from: calorie.timeStamp)
         
         return cell
         
