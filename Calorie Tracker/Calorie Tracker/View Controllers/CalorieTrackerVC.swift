@@ -118,6 +118,17 @@ extension CalorieTrackerVC: UITableViewDataSource, UITableViewDelegate {
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let date = fetchedResultsController.fetchedObjects?[section].timeStamp else { return nil }
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: date)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         guard let calorie = fetchedResultsController.fetchedObjects?[indexPath.row] else { return UITableViewCell() }
