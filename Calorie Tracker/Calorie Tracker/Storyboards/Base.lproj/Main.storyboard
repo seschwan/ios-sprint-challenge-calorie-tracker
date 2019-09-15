@@ -85,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="gP3-PW-N0y" id="wiV-FU-fZM"/>
+                        <outlet property="chartView" destination="Q3E-hu-oNc" id="dZj-Mb-NJq"/>
                         <outlet property="tableView" destination="1m2-ou-k4w" id="HnD-Gw-UV5"/>
                     </connections>
                 </viewController>
